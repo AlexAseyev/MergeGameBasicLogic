@@ -5,9 +5,6 @@ const { ccclass, property } = _decorator;
 @ccclass('ObjectScript')
 export class ObjectScript extends Component {
 
-    //@property({type: Label})
-    //private scoreLabel: Label | null = null;
-
     private collider: any;
 
     _sprite: Node;
@@ -74,12 +71,12 @@ export class ObjectScript extends Component {
 
     onSpriteDecrease()
     {
-        //this._sprite.setScale(0.19, 0.19, 0.19);
+        this._sprite.setScale(0.19, 0.19, 0.19);
     }
 
     onSpriteStartState()
     {
-        //this._sprite.setScale(0.2, 0.2, 0.2);
+        this._sprite.setScale(0.2, 0.2, 0.2);
     }
 
     update(dt)
@@ -97,7 +94,6 @@ export class ObjectScript extends Component {
         if (this.collider)
         {
             this.collider.on(Contact2DType.BEGIN_CONTACT, this.onBeginContact, this);
-            //this.collider.on(Contact2DType.END_CONTACT, this.onEndContact, this);
         }
     }
 
@@ -105,11 +101,8 @@ export class ObjectScript extends Component {
     {
         if (otherCollider.name == "Position<BoxCollider2D>")
         {
-            //selfCollider.node.setPosition(otherCollider.node.getPosition());
             this._position.x = otherCollider.node.getPosition().x;
             this._position.y = otherCollider.node.getPosition().y;
-
-            //this.scoreLabel.string = "onBeginContact";
         }
     }
 }
